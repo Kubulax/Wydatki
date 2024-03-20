@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wydatki.MainPage">
+
+    <ContentPage Title="Dodaj Wydatek">
+        <StackLayout>
+            <Frame Margin="20">
+                <Label Text="W tym miejscu możesz zapisać swoje wydatki w naszej aplikacji" HorizontalTextAlignment="Center"/>
+            </Frame>
+            <Frame Margin="20,0,20,0" Padding="20,10,20,0">
+                <StackLayout Margin="10">
+                    <Label TextColor="Black" Text="Nazwa Wydatku :" VerticalTextAlignment="Center"></Label>
+                    <Entry x:Name="NazwaTxt" TextColor="Gray" VerticalOptions="Center"/>
+                    <Label TextColor="Black" Grid.Row="1" Text="Kwota Wydatku :" VerticalTextAlignment="Center"></Label>
+                    <Entry Grid.Row="1" TextColor="Gray" x:Name="KwotaTxt" VerticalOptions="Center"/>
+                    <Label TextColor="Black" Grid.Row="2" Text="Data Wydatku :" VerticalTextAlignment="Center"></Label>
+                    <DatePicker Grid.Row="2" TextColor="Gray" x:Name="DataTxt" VerticalOptions="Center" Margin="0,0,0,0"/>
+
+                    <Button Text="DODAJ" Clicked="AddSpending" BackgroundColor="Transparent" BorderColor="Black" BorderWidth="1" Margin="20,20,20,20" CornerRadius="10"></Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Twoje Wydatki">
+        <StackLayout>
+            <ListView x:Name="Lista" ItemTapped="Details" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame Margin="20">
+                                    <Label Margin="10" FontAttributes="Bold" Text="{Binding Data}"/>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>
